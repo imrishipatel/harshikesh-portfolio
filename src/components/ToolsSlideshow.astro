@@ -1,0 +1,99 @@
+---
+const tools = [
+  { src: '/tools/photoshop.png', alt: 'Adobe Photoshop' },
+  { src: '/tools/indesign.png', alt: 'Adobe InDesign' },
+  { src: '/tools/lightroom.png', alt: 'Adobe Lightroom' },
+  { src: '/tools/acrobat.png', alt: 'Adobe Acrobat' },
+  { src: '/tools/figma.png', alt: 'Figma' },
+  { src: '/tools/coreldraw.jpg', alt: 'CorelDRAW' },
+  { src: '/tools/caldera.png', alt: 'Caldera RIP' },
+  { src: '/tools/tool-01.png', alt: 'Tool' },
+  { src: '/tools/tool-02.png', alt: 'Tool' },
+  { src: '/tools/tool-03.png', alt: 'Tool' },
+  { src: '/tools/tool-04.jpeg', alt: 'Tool' },
+  { src: '/tools/tool-05.png', alt: 'Tool' },
+  { src: '/tools/tool-06.webp', alt: 'Tool' },
+];
+---
+
+<section class="tools-section">
+  <div class="container">
+    <h2 class="section-title fade-in">Tools & Softwares</h2>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      {tools.map(tool => (
+        <div class="marquee-item">
+          <img src={tool.src} alt={tool.alt} loading="lazy" />
+        </div>
+      ))}
+      {tools.map(tool => (
+        <div class="marquee-item">
+          <img src={tool.src} alt={tool.alt} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tools-section {
+    background: var(--color-bg-alt);
+    overflow: hidden;
+  }
+
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .marquee-item img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(20%);
+    opacity: 0.85;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+
+  .marquee-item img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .marquee-track {
+      gap: 40px;
+    }
+
+    .marquee-item img {
+      height: 45px;
+    }
+  }
+</style>

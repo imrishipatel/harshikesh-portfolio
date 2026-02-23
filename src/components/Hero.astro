@@ -1,0 +1,252 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+  </div>
+  <div class="hero-content">
+    <div class="profile-photo">
+      <img src="/profile/profile.jpeg" alt="Harshikesh Dubey" />
+    </div>
+    <h1 class="hero-name">HARSHIKESH DUBEY</h1>
+    <p class="hero-subtitle">Graphic Designer and Print Production Specialist</p>
+    <a href="/resume/resume.pdf" download class="btn-download">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Resume
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: var(--header-height);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    will-change: transform, opacity;
+  }
+
+  .blob-1 {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, #93c5fd 0%, #c4b5fd 50%, #f9a8d4 100%);
+    top: -12%;
+    left: -8%;
+    animation: drift1 10s ease-in-out infinite alternate, colorShift1 20s ease-in-out infinite;
+  }
+
+  .blob-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #a5f3fc 0%, #99f6e4 50%, #bbf7d0 100%);
+    bottom: -12%;
+    right: -8%;
+    animation: drift2 12s ease-in-out infinite alternate, colorShift2 18s ease-in-out infinite;
+  }
+
+  .blob-3 {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, #c4b5fd 0%, #93c5fd 50%, #a5f3fc 100%);
+    top: 35%;
+    left: 45%;
+    animation: drift3 8s ease-in-out infinite alternate, colorShift3 22s ease-in-out infinite;
+  }
+
+  .blob-4 {
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, #fde68a 0%, #fca5a5 50%, #f9a8d4 100%);
+    top: 8%;
+    right: 15%;
+    animation: drift4 14s ease-in-out infinite alternate, colorShift4 16s ease-in-out infinite;
+  }
+
+  .blob-5 {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, #dbeafe 0%, #e0e7ff 50%, #ede9fe 100%);
+    bottom: 20%;
+    left: 15%;
+    animation: drift5 11s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift1 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(50px, 30px) scale(1.1) rotate(5deg); }
+    66% { transform: translate(100px, -20px) scale(0.95) rotate(-3deg); }
+    100% { transform: translate(80px, 60px) scale(1.15) rotate(8deg); }
+  }
+
+  @keyframes drift2 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-40px, -30px) scale(1.08) rotate(-4deg); }
+    66% { transform: translate(-80px, 20px) scale(0.92) rotate(6deg); }
+    100% { transform: translate(-70px, -50px) scale(1.12) rotate(-5deg); }
+  }
+
+  @keyframes drift3 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-30px, 50px) scale(1.15) rotate(7deg); }
+    66% { transform: translate(40px, -30px) scale(0.9) rotate(-5deg); }
+    100% { transform: translate(-60px, 40px) scale(1.2) rotate(10deg); }
+  }
+
+  @keyframes drift4 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(30px, -40px) scale(1.05) rotate(-6deg); }
+    66% { transform: translate(-20px, -60px) scale(1.15) rotate(4deg); }
+    100% { transform: translate(50px, -70px) scale(1.1) rotate(-8deg); }
+  }
+
+  @keyframes drift5 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+    50% { transform: translate(40px, -30px) scale(1.1); opacity: 0.65; }
+    100% { transform: translate(-30px, 50px) scale(0.95); opacity: 0.5; }
+  }
+
+  @keyframes colorShift1 {
+    0%, 100% { background: radial-gradient(circle, #93c5fd 0%, #c4b5fd 50%, #f9a8d4 100%); opacity: 0.55; }
+    25% { background: radial-gradient(circle, #c4b5fd 0%, #f9a8d4 50%, #fde68a 100%); opacity: 0.7; }
+    50% { background: radial-gradient(circle, #a5f3fc 0%, #93c5fd 50%, #c4b5fd 100%); opacity: 0.5; }
+    75% { background: radial-gradient(circle, #fde68a 0%, #fca5a5 50%, #c4b5fd 100%); opacity: 0.65; }
+  }
+
+  @keyframes colorShift2 {
+    0%, 100% { background: radial-gradient(circle, #a5f3fc 0%, #99f6e4 50%, #bbf7d0 100%); opacity: 0.5; }
+    33% { background: radial-gradient(circle, #93c5fd 0%, #a5f3fc 50%, #99f6e4 100%); opacity: 0.65; }
+    66% { background: radial-gradient(circle, #bbf7d0 0%, #fde68a 50%, #a5f3fc 100%); opacity: 0.45; }
+  }
+
+  @keyframes colorShift3 {
+    0%, 100% { background: radial-gradient(circle, #c4b5fd 0%, #93c5fd 50%, #a5f3fc 100%); opacity: 0.45; }
+    33% { background: radial-gradient(circle, #f9a8d4 0%, #c4b5fd 50%, #93c5fd 100%); opacity: 0.6; }
+    66% { background: radial-gradient(circle, #93c5fd 0%, #a5f3fc 50%, #bbf7d0 100%); opacity: 0.5; }
+  }
+
+  @keyframes colorShift4 {
+    0%, 100% { background: radial-gradient(circle, #fde68a 0%, #fca5a5 50%, #f9a8d4 100%); opacity: 0.5; }
+    50% { background: radial-gradient(circle, #fca5a5 0%, #f9a8d4 50%, #c4b5fd 100%); opacity: 0.7; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    animation: heroFadeIn 1s ease-out both;
+  }
+
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .profile-photo {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 28px;
+    animation: photoFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes photoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+    max-width: 400px;
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  }
+
+  .btn-download:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+    }
+
+    .hero-name {
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .blob-1 { width: 320px; height: 320px; }
+    .blob-2 { width: 270px; height: 270px; }
+    .blob-3 { width: 220px; height: 220px; }
+    .blob-4 { width: 200px; height: 200px; }
+    .blob-5 { width: 160px; height: 160px; }
+  }
+</style>

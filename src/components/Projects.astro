@@ -1,0 +1,160 @@
+---
+const images = [
+  { src: '/projects/project-01.png', type: 'image' },
+  { src: '/projects/project-02.png', type: 'image' },
+  { src: '/projects/project-03.png', type: 'image' },
+  { src: '/projects/project-04.png', type: 'image' },
+  { src: '/projects/project-05.png', type: 'image' },
+  { src: '/projects/project-06.png', type: 'image' },
+  { src: '/projects/project-video-01.mp4', type: 'video' },
+  { src: '/projects/project-07.png', type: 'image' },
+  { src: '/projects/project-08.png', type: 'image' },
+  { src: '/projects/project-09.jpeg', type: 'image' },
+  { src: '/projects/project-10.jpeg', type: 'image' },
+  { src: '/projects/project-11.jpeg', type: 'image' },
+  { src: '/projects/project-12.jpeg', type: 'image' },
+  { src: '/projects/project-13.jpeg', type: 'image' },
+  { src: '/projects/project-14.jpeg', type: 'image' },
+];
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <h2 class="section-title fade-in">Projects</h2>
+    <p class="projects-caption fade-in fade-in-delay-1">
+      Throughout my career, I have successfully delivered 5,000+ design and print production projects worldwide,
+      working with globally recognized brands such as LG, Hitachi, Tim Hortons, Adidas, Mr. Lube, RONA, Scotiabank,
+      Crunch Fitness, Royal Caribbean, Toys"R"Us, and Pattison, delivering high-impact signage, branding, and
+      large-format print production solutions with a strong focus on precision, material sourcing, and technical excellence.
+    </p>
+  </div>
+
+  <!-- Desktop: Masonry collage -->
+  <div class="collage-grid container">
+    {images.map(item => (
+      <div class="collage-item">
+        {item.type === 'video' ? (
+          <video src={item.src} muted autoplay loop playsinline></video>
+        ) : (
+          <img src={item.src} alt="Project work" loading="lazy" />
+        )}
+      </div>
+    ))}
+  </div>
+
+  <!-- Mobile: Swiper slideshow -->
+  <div class="mobile-slideshow">
+    <div class="swiper" id="projectSwiper">
+      <div class="swiper-wrapper">
+        {images.map(item => (
+          <div class="swiper-slide">
+            {item.type === 'video' ? (
+              <video src={item.src} muted autoplay loop playsinline></video>
+            ) : (
+              <img src={item.src} alt="Project work" loading="lazy" />
+            )}
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    background: var(--color-bg-alt);
+  }
+
+  .projects-caption {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+  }
+
+  /* Desktop collage */
+  .collage-grid {
+    columns: 3;
+    column-gap: 16px;
+  }
+
+  .collage-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .collage-item img,
+  .collage-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Mobile slideshow hidden on desktop */
+  .mobile-slideshow {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .collage-grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .collage-grid {
+      display: none;
+    }
+
+    .mobile-slideshow {
+      display: block;
+      padding: 0 20px;
+    }
+
+    .projects-caption {
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    .swiper-slide img,
+    .swiper-slide video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .swiper {
+      padding-bottom: 36px;
+    }
+
+    .swiper-pagination {
+      bottom: 0 !important;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+  import { Pagination } from 'swiper/modules';
+
+  new Swiper('#projectSwiper', {
+    modules: [Pagination],
+    slidesPerView: 1,
+    spaceBetween: 16,
+    autoHeight: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    loop: true,
+  });
+</script>
