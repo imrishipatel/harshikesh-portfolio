@@ -44,8 +44,8 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.6;
-    will-change: transform, opacity;
+    opacity: 0.55;
+    will-change: transform, filter;
   }
 
   .blob-1 {
@@ -54,7 +54,7 @@
     background: radial-gradient(circle, #93c5fd 0%, #c4b5fd 50%, #f9a8d4 100%);
     top: -12%;
     left: -8%;
-    animation: drift1 10s ease-in-out infinite alternate, colorShift1 20s ease-in-out infinite;
+    animation: drift1 18s ease-in-out infinite alternate, hueShift1 25s linear infinite;
   }
 
   .blob-2 {
@@ -63,7 +63,7 @@
     background: radial-gradient(circle, #a5f3fc 0%, #99f6e4 50%, #bbf7d0 100%);
     bottom: -12%;
     right: -8%;
-    animation: drift2 12s ease-in-out infinite alternate, colorShift2 18s ease-in-out infinite;
+    animation: drift2 20s ease-in-out infinite alternate, hueShift2 30s linear infinite;
   }
 
   .blob-3 {
@@ -72,7 +72,7 @@
     background: radial-gradient(circle, #c4b5fd 0%, #93c5fd 50%, #a5f3fc 100%);
     top: 35%;
     left: 45%;
-    animation: drift3 8s ease-in-out infinite alternate, colorShift3 22s ease-in-out infinite;
+    animation: drift3 16s ease-in-out infinite alternate, hueShift3 20s linear infinite;
   }
 
   .blob-4 {
@@ -81,7 +81,7 @@
     background: radial-gradient(circle, #fde68a 0%, #fca5a5 50%, #f9a8d4 100%);
     top: 8%;
     right: 15%;
-    animation: drift4 14s ease-in-out infinite alternate, colorShift4 16s ease-in-out infinite;
+    animation: drift4 22s ease-in-out infinite alternate, hueShift4 35s linear infinite;
   }
 
   .blob-5 {
@@ -90,65 +90,66 @@
     background: radial-gradient(circle, #dbeafe 0%, #e0e7ff 50%, #ede9fe 100%);
     bottom: 20%;
     left: 15%;
-    animation: drift5 11s ease-in-out infinite alternate;
+    animation: drift5 19s ease-in-out infinite alternate, hueShift5 28s linear infinite;
   }
 
   @keyframes drift1 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(50px, 30px) scale(1.1) rotate(5deg); }
-    66% { transform: translate(100px, -20px) scale(0.95) rotate(-3deg); }
-    100% { transform: translate(80px, 60px) scale(1.15) rotate(8deg); }
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, 30px) scale(1.08); }
+    66% { transform: translate(100px, -20px) scale(0.95); }
+    100% { transform: translate(80px, 60px) scale(1.1); }
   }
 
   @keyframes drift2 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(-40px, -30px) scale(1.08) rotate(-4deg); }
-    66% { transform: translate(-80px, 20px) scale(0.92) rotate(6deg); }
-    100% { transform: translate(-70px, -50px) scale(1.12) rotate(-5deg); }
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-40px, -30px) scale(1.06); }
+    66% { transform: translate(-80px, 20px) scale(0.94); }
+    100% { transform: translate(-70px, -50px) scale(1.08); }
   }
 
   @keyframes drift3 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(-30px, 50px) scale(1.15) rotate(7deg); }
-    66% { transform: translate(40px, -30px) scale(0.9) rotate(-5deg); }
-    100% { transform: translate(-60px, 40px) scale(1.2) rotate(10deg); }
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, 50px) scale(1.1); }
+    66% { transform: translate(40px, -30px) scale(0.92); }
+    100% { transform: translate(-60px, 40px) scale(1.12); }
   }
 
   @keyframes drift4 {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(30px, -40px) scale(1.05) rotate(-6deg); }
-    66% { transform: translate(-20px, -60px) scale(1.15) rotate(4deg); }
-    100% { transform: translate(50px, -70px) scale(1.1) rotate(-8deg); }
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -40px) scale(1.05); }
+    66% { transform: translate(-20px, -60px) scale(1.1); }
+    100% { transform: translate(50px, -70px) scale(0.95); }
   }
 
   @keyframes drift5 {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-    50% { transform: translate(40px, -30px) scale(1.1); opacity: 0.65; }
-    100% { transform: translate(-30px, 50px) scale(0.95); opacity: 0.5; }
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -30px) scale(1.08); }
+    100% { transform: translate(-30px, 50px) scale(0.95); }
   }
 
-  @keyframes colorShift1 {
-    0%, 100% { background: radial-gradient(circle, #93c5fd 0%, #c4b5fd 50%, #f9a8d4 100%); opacity: 0.55; }
-    25% { background: radial-gradient(circle, #c4b5fd 0%, #f9a8d4 50%, #fde68a 100%); opacity: 0.7; }
-    50% { background: radial-gradient(circle, #a5f3fc 0%, #93c5fd 50%, #c4b5fd 100%); opacity: 0.5; }
-    75% { background: radial-gradient(circle, #fde68a 0%, #fca5a5 50%, #c4b5fd 100%); opacity: 0.65; }
+  @keyframes hueShift1 {
+    from { filter: blur(80px) hue-rotate(0deg); }
+    to { filter: blur(80px) hue-rotate(360deg); }
   }
 
-  @keyframes colorShift2 {
-    0%, 100% { background: radial-gradient(circle, #a5f3fc 0%, #99f6e4 50%, #bbf7d0 100%); opacity: 0.5; }
-    33% { background: radial-gradient(circle, #93c5fd 0%, #a5f3fc 50%, #99f6e4 100%); opacity: 0.65; }
-    66% { background: radial-gradient(circle, #bbf7d0 0%, #fde68a 50%, #a5f3fc 100%); opacity: 0.45; }
+  @keyframes hueShift2 {
+    from { filter: blur(80px) hue-rotate(0deg); }
+    to { filter: blur(80px) hue-rotate(-360deg); }
   }
 
-  @keyframes colorShift3 {
-    0%, 100% { background: radial-gradient(circle, #c4b5fd 0%, #93c5fd 50%, #a5f3fc 100%); opacity: 0.45; }
-    33% { background: radial-gradient(circle, #f9a8d4 0%, #c4b5fd 50%, #93c5fd 100%); opacity: 0.6; }
-    66% { background: radial-gradient(circle, #93c5fd 0%, #a5f3fc 50%, #bbf7d0 100%); opacity: 0.5; }
+  @keyframes hueShift3 {
+    from { filter: blur(80px) hue-rotate(0deg); }
+    to { filter: blur(80px) hue-rotate(360deg); }
   }
 
-  @keyframes colorShift4 {
-    0%, 100% { background: radial-gradient(circle, #fde68a 0%, #fca5a5 50%, #f9a8d4 100%); opacity: 0.5; }
-    50% { background: radial-gradient(circle, #fca5a5 0%, #f9a8d4 50%, #c4b5fd 100%); opacity: 0.7; }
+  @keyframes hueShift4 {
+    from { filter: blur(80px) hue-rotate(0deg); }
+    to { filter: blur(80px) hue-rotate(-360deg); }
+  }
+
+  @keyframes hueShift5 {
+    from { filter: blur(80px) hue-rotate(0deg); }
+    to { filter: blur(80px) hue-rotate(360deg); }
   }
 
   .hero-content {
@@ -175,12 +176,6 @@
     border: 4px solid rgba(255, 255, 255, 0.85);
     box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
     margin-bottom: 28px;
-    animation: photoFloat 6s ease-in-out infinite;
-  }
-
-  @keyframes photoFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
   }
 
   .profile-photo img {

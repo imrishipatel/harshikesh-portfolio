@@ -1,11 +1,10 @@
 ---
-const currentYear = new Date().getFullYear();
 ---
 
 <footer id="contact" class="footer">
   <div class="container">
     <div class="footer-content fade-in">
-      <h2 class="footer-name">Harshikesh Dubey</h2>
+      <h2 class="footer-name">HARSHIKESH DUBEY</h2>
 
       <div class="footer-links">
         <a href="mailto:dev.dubey.100@gmail.com" class="footer-link">
@@ -24,7 +23,7 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="footer-bottom">
-      <p class="copyright">&copy; {currentYear} Harshikesh Dubey. All Rights Reserved.</p>
+      <p class="copyright">&copy; <span id="footerYear"></span> Harshikesh Dubey. All Rights Reserved.</p>
       <p class="credit">Website developed and deployed in collaboration with <a href="https://github.com/imrishipatel" target="_blank" rel="noopener noreferrer">Rishi</a></p>
     </div>
   </div>
@@ -44,10 +43,11 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-name {
+    font-family: var(--font-display);
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 300;
     margin-bottom: 24px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.08em;
     color: var(--color-accent);
   }
 
@@ -106,6 +106,7 @@ const currentYear = new Date().getFullYear();
 
     .footer-name {
       font-size: 1.3rem;
+      letter-spacing: 0.06em;
     }
 
     .footer-link {
@@ -113,3 +114,7 @@ const currentYear = new Date().getFullYear();
     }
   }
 </style>
+
+<script>
+  document.getElementById('footerYear')!.textContent = new Date().getFullYear().toString();
+</script>
