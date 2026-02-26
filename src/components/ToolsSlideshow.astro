@@ -4,12 +4,13 @@ const tools = [
   { src: '/tools/indesign.png', alt: 'Adobe InDesign' },
   { src: '/tools/lightroom.png', alt: 'Adobe Lightroom' },
   { src: '/tools/acrobat.png', alt: 'Adobe Acrobat' },
+  { src: '/tools/illustrator.svg', alt: 'Adobe Illustrator' },
   { src: '/tools/figma.png', alt: 'Figma' },
-  { src: '/tools/coreldraw.jpg', alt: 'CorelDRAW' },
+  { src: '/tools/coreldraw.png', alt: 'CorelDRAW' },
   { src: '/tools/caldera.png', alt: 'Caldera RIP' },
+  { src: '/tools/versaworks.png', alt: 'VersaWorks' },
   { src: '/tools/tool-01.png', alt: 'Tool' },
   { src: '/tools/tool-02.png', alt: 'Tool' },
-  { src: '/tools/tool-03.png', alt: 'Tool' },
   { src: '/tools/tool-04.jpeg', alt: 'Tool' },
   { src: '/tools/tool-05.png', alt: 'Tool' },
   { src: '/tools/tool-06.webp', alt: 'Tool' },
@@ -19,16 +20,9 @@ const tools = [
 <section class="tools-section">
   <div class="container">
     <h2 class="section-title fade-in">Tools & Softwares</h2>
-  </div>
-  <div class="marquee-wrapper">
-    <div class="marquee-track">
+    <div class="tools-grid fade-in fade-in-delay-1">
       {tools.map(tool => (
-        <div class="marquee-item">
-          <img src={tool.src} alt={tool.alt} loading="lazy" />
-        </div>
-      ))}
-      {tools.map(tool => (
-        <div class="marquee-item">
+        <div class="grid-item">
           <img src={tool.src} alt={tool.alt} loading="lazy" />
         </div>
       ))}
@@ -39,61 +33,50 @@ const tools = [
 <style>
   .tools-section {
     background: var(--color-bg-alt);
-    overflow: hidden;
   }
 
-  .marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  }
-
-  .marquee-track {
-    display: flex;
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 32px 24px;
     align-items: center;
-    gap: 60px;
-    width: max-content;
-    animation: marquee 35s linear infinite;
+    justify-items: center;
   }
 
-  .marquee-item {
-    flex-shrink: 0;
+  .grid-item {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .marquee-item img {
-    height: 80px;
+  .grid-item img {
+    height: 70px;
     width: auto;
     object-fit: contain;
-    filter: grayscale(20%);
-    opacity: 0.85;
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    opacity: 0.88;
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
-  .marquee-item img:hover {
+  .grid-item img:hover {
     opacity: 1;
-    filter: grayscale(0%);
+    transform: scale(1.1);
   }
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
+  @media (max-width: 1024px) {
+    .tools-grid {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 
   @media (max-width: 768px) {
-    .marquee-track {
-      gap: 40px;
+    .tools-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 16px;
     }
 
-    .marquee-item img {
-      height: 55px;
+    .grid-item img {
+      height: 52px;
+      opacity: 0.9;
     }
   }
 </style>
